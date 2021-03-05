@@ -71,7 +71,7 @@ dealer_score = cart_value[1]
 player_score = cart_value[2]+cart_value[3]
 print("Dealer's score:", dealer_score)
 print("Player's score:", player_score)
-counter = 0
+counter = 0 
 if player_score == 21:
     print("Black jack! You won!")
 elif player_score > 21:
@@ -104,7 +104,10 @@ else:
                 while dealer_score <= 16:
                     new_cart = random.choice(cart_values)
                     dealer.append(new_cart[0])
-                    dealer_score += new_cart[1]
+                    if new_cart in ["AceofClubs", "AceofDiamonds", "AceofHearts", "AceofSpades"]:
+                        dealer_score += new_cart[2]
+                    else:
+                        dealer_score += new_cart[1]
                 print("Dealer's hand:")
                 for cart in dealer:
                     print(cart)
